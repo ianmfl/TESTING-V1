@@ -34,9 +34,10 @@ afterAll(() => {
 
 
 describe('Posts API', () => {
-    it('GET /posts > proxies and returns samplePosts', async () => {
+    it('GET /posts return not empty array', async () => {
         const res = await request(app).get('/posts')
         expect(res.status).toBe(200)
+        expect(res.body).not.toBe([])
     })
 
     it('GET /posts/1 → proxies and returns the first post', async () => {
